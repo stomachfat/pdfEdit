@@ -1,12 +1,42 @@
 import React from 'react';
+import Dropzone from 'react-dropzone';
 
-const LandingPage = ({ done }) => (
-    <div>
+import './LandingPage.css';
+
+const onDrop = done => () => {
+  done();
+};
+
+const onClick = (ev) => {
+  ev.preventDefault();
+  ev.stopPropagation();
+  debugger;
+  document.getElementById('file-input').click();
+};
+
+const LandingPage = ({ done }) => {
+  return (
+    <Dropzone
+      onDrop={onDrop(done)}
+      onClick={() => {}}
+      disableClick
+    >
         <div>
-            <input type="button" id="load-file-btn" value="Upload a PDF" onClick={() => document.getElementById('file-input').click()} />
-            <input id="file-input" type="file" onChange={done}></input>
+            <div
+              className="dropFileText"
+            >
+                Drop a file here!
+            </div>
+
+            <div>
+                <input type="button" id="load-file-btn" value="Upload a PDF" onClick={onClick} />
+                <input id="file-input" type="file" onChange={done}></input>
+            </div>
         </div>
-    </div>
-);
+
+
+    </Dropzone>
+  );
+};
 
 export default LandingPage;
