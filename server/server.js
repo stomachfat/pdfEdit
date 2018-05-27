@@ -1,4 +1,4 @@
-var serverless = require('serverless-http');
+// var serverless = require('serverless-http');
 var express = require('express');
 var app = express();
 
@@ -44,4 +44,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = serverless(app);
+module.exports = app;

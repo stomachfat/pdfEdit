@@ -10,6 +10,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "painterro": "^0.2.65",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-dropzone": "^4.2.9",

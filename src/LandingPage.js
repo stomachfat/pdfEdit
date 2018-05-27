@@ -10,7 +10,7 @@ const onDrop = done => () => {
 const onClick = (ev) => {
   ev.preventDefault();
   ev.stopPropagation();
-  debugger;
+
   document.getElementById('file-input').click();
 };
 

@@ -3,6 +3,8 @@ import './App.css';
 import LandingPage from './LandingPage';
 import LoadingPage from './LoadingPage';
 import Paywall from './Paywall';
+import Paint from './Paint';
+
 
 const Foo = () => (<div>Hi111</div>);
 
@@ -43,6 +45,11 @@ class App extends Component {
                 <div className='container-content main-content'>
                     {renderedPage}
                 </div>
+                {
+                    <div>
+                        <Paint />
+                    </div>
+                }
             </div>
         );
     }
