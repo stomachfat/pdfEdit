@@ -9,6 +9,7 @@
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
     "morgan": "^1.9.0",
     "painterro": "^0.2.65",
     "react": "^16.3.2",

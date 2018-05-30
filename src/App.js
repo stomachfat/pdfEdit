@@ -4,6 +4,7 @@ import LandingPage from './LandingPage';
 import LoadingPage from './LoadingPage';
 import Paywall from './Paywall';
 import Paint from './Paint';
+import Uploader from './Uploader';
 
 
 const Foo = () => (<div>Hi111</div>);
@@ -46,8 +47,13 @@ class App extends Component {
                     {renderedPage}
                 </div>
                 {
+                    // <div>
+                    //     <Paint />
+                    // </div>
+                }
+                {
                     <div>
-                        <Paint />
+                        <Uploader />
                     </div>
                 }
             </div>
