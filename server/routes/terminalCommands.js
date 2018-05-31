@@ -18,7 +18,7 @@ function sh(cmd) {
   });
 }
 
-var convert = 'convert -density 300 uploads/test.pdf -quality 100 convertedToPng/test.png';
+var convert = 'convert -density 300 uploads/test.pdf -quality 100 -flatten convertedToPng/test.png';
 // var convert = '';
 
 function main() {

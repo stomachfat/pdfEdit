@@ -3,11 +3,8 @@ import './App.css';
 import LandingPage from './LandingPage';
 import LoadingPage from './LoadingPage';
 import Paywall from './Paywall';
-import Paint from './Paint';
-import Uploader from './Uploader';
+import PaintPage from './PaintPage';
 
-
-const Foo = () => (<div>Hi111</div>);
 
 class App extends Component {
     constructor(props) {
@@ -21,7 +18,7 @@ class App extends Component {
     moveToNextPage () {
         const pageTransitions = [
             [LandingPage, LoadingPage],
-            [LoadingPage, Paywall]
+            [LoadingPage, PaintPage]
         ];
         const currentPage = this.state.currentPage;
 
@@ -46,16 +43,6 @@ class App extends Component {
                 <div className='container-content main-content'>
                     {renderedPage}
                 </div>
-                {
-                    // <div>
-                    //     <Paint />
-                    // </div>
-                }
-                {
-                    <div>
-                        <Uploader />
-                    </div>
-                }
             </div>
         );
     }

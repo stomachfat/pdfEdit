@@ -1,6 +1,5 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import axios from 'axios';
 
 
 import './LandingPage.css';
@@ -58,16 +57,14 @@ const saveToServer = file => {
     // },
     body: data,
   }).then(response => {
-    debugger;
   });
 }
 
 const onDrop = done => (acceptedFiles, rejectedFiles, event) => {
   const file = acceptedFiles[0];
 
-  debugger;
   saveToServer(file);
-  // done();
+  done();
 };
 
 const onClick = (ev) => {
