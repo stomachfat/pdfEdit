@@ -18,18 +18,26 @@ function sh(cmd) {
   });
 }
 
-var convert = ''; //'convert -density 300 EDD.pdf -quality 100 EDD.png';
+var convert = 'convert -density 300 uploads/test.pdf -quality 100 convertedToPng/test.png';
+// var convert = '';
 
 function main() {
-  sh(convert).then(({ stdout }) => {
+  console.log('STARTED CONVERTING');
+
+  const mainPromise = sh(convert).then(({ stdout }) => {
     for (let line of stdout.split('\n')) {
       debugger;
       console.log(`ls: ${line}`);
+
     }
+    console.log('DONE CONVERTING');
+
+    return;
   });
 
+  return mainPromise;
 }
 
-main();
-
-module.exports = {};
+module.exports = {
+  convertPDF: main,
+};
