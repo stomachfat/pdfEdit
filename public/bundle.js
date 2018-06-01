@@ -22028,6 +22028,17 @@ var dataURItoBlob = function dataURItoBlob(dataURI) {
 
 var blob = dataURItoBlob(b64Data);
 
+function downloadURI(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  link.click();
+}
+
+var downloadPDF = function downloadPDF() {
+  downloadURI('/pdfs/test.pdf', 'editedPdf.pdf');
+};
+
 var Paint = function (_Component) {
   _inherits(Paint, _Component);
 
@@ -22038,17 +22049,34 @@ var Paint = function (_Component) {
 
     _this.ptro = (0, _painterro2.default)({
       saveHandler: function saveHandler(image, done) {
+        var formData = new FormData();
+        formData.append('file', image.asBlob());
+        var a = image.asBlob();
+        console.log('image a: ', a);
         debugger;
-        // var formData = new FormData();
-        // formData.append('image', image.asBlob());
-        // // you can also pass suggested filename
-        // // formData.append('image', image.asBlob(), image.suggestedFileName());
+        // you can also pass suggested filename
+        // formData.append('image', image.asBlob(), image.suggestedFileName());
         // var xhr = new XMLHttpRequest();
         // xhr.open('POST', 'http://127.0.0.1:5000/save-as-binary/', true);
         // xhr.onload = xhr.onerror = function () {
         //   done(true);
         // };
         // xhr.send(formData);
+
+        fetch('/convertPngToPdf', {
+          method: 'POST',
+          body: formData
+        }).then(function (response) {
+          console.log('saveHandler success', response);
+          debugger;
+          downloadPDF();
+          done(true);
+        }).catch(function (err) {
+          console.log('saveHandler err:', err);
+
+          debugger;
+          done(true);
+        });
       },
       closeHandler: function closeHandler() {
         debugger;
@@ -22094,8 +22122,17 @@ var Paint = function (_Component) {
 
         return rsp.blob();
       }).then(function (blob) {
-        var a = blob;
-        debugger;
+        // const a = blob;
+        // debugger;
+
+        // let reader = new FileReader();
+        // let base64data;
+        //   reader.readAsDataURL(blob);
+        //   reader.onloadend = function() {
+        //     base64data = reader.result;
+        //     console.log('base64data: ', base64data);
+
+        //   }
 
         _this2.ptro.openFile(blob);
         _this2.ptro.show();

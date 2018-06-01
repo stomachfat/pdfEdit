@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var convertPDFToPng = require('./terminalCommands').convertPDFToPng;
+var convertPngToPdf = require('./terminalCommands').convertPngToPdf;
 
 /* GET users listing. */
-router.post('/upload', function(req, res) {
-  console.log("HERE!? router.post('/upload")
+router.post('/convertPngToPdf', function(req, res) {
+  console.log("HERE!? router.post('/convertPngToPdf")
   if (!req.files) {
     console.log('req.body: ', req.body);
     console.log('req.file: ', req.file);
@@ -20,14 +20,14 @@ router.post('/upload', function(req, res) {
   let sampleFile = req.files.file;
 
   // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv('uploads/test.pdf', function(err) {
+  sampleFile.mv('uploads/test.png', function(err) {
     if (err) {
       console.log('wtf: ', err);
       return res.status(500).send(err);
     }
 
-    convertPDFToPng().then(() => {
-      console.log("holy shit convertPDFToPng worked!");
+    convertPngToPdf().then(() => {
+      console.log("holy shit convertPngToPdf worked!");
       return res.status(200).send();
     })
 

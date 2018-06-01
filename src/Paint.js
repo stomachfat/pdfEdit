@@ -36,6 +36,16 @@ const dataURItoBlob = (dataURI) => {
 
 const blob = dataURItoBlob(b64Data);
 
+function downloadURI(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  link.click();
+}
+
+const downloadPDF = () => {
+  downloadURI('/pdfs/test.pdf', 'editedPdf.pdf');
+}
 
 class Paint extends Component {
   constructor() {
@@ -43,17 +53,34 @@ class Paint extends Component {
 
     this.ptro = Painterro({
       saveHandler: function (image, done) {
+        var formData = new FormData();
+        formData.append('file', image.asBlob());
+        const a = image.asBlob();
+        console.log('image a: ', a);
         debugger;
-        // var formData = new FormData();
-        // formData.append('image', image.asBlob());
-        // // you can also pass suggested filename
-        // // formData.append('image', image.asBlob(), image.suggestedFileName());
+        // you can also pass suggested filename
+        // formData.append('image', image.asBlob(), image.suggestedFileName());
         // var xhr = new XMLHttpRequest();
         // xhr.open('POST', 'http://127.0.0.1:5000/save-as-binary/', true);
         // xhr.onload = xhr.onerror = function () {
         //   done(true);
         // };
         // xhr.send(formData);
+
+        fetch('/convertPngToPdf', {
+          method: 'POST',
+          body: formData,
+        }).then(response => {
+          console.log('saveHandler success', response);
+          debugger;
+          downloadPDF();
+          done(true);
+        }).catch(err => {
+          console.log('saveHandler err:', err);
+
+          debugger;
+          done(true);
+        });
       },
       closeHandler: function () {
         debugger;

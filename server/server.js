@@ -18,6 +18,8 @@ const fileUpload = require('express-fileupload');
 app.use(fileUpload());
 const fileUploaderRoute = require('./routes/fileUpload');
 app.use(fileUploaderRoute);
+const convertPngToPdfRoute = require('./routes/convertPngToPdf');
+app.use(convertPngToPdfRoute);
 // default options
 
 // app.post('/upload', function(req, res) {
@@ -51,6 +53,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/images', express.static(path.join(__dirname, '../convertedToPng')));
+app.use('/pdfs', express.static(path.join(__dirname, '../convertedToPdf')));
 
 app.use('/', index);
 
