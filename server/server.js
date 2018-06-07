@@ -77,9 +77,12 @@ app.use(function(err, req, res, next) {
 });
 
 // Constants
-var PORT = 8080;
-var HOST = '0.0.0.0';
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+var PORT = 3000;
+// var HOST = '0.0.0.0';
+// app.listen(PORT, HOST);
+var port_number = app.listen(process.env.PORT || PORT);
+app.listen(port_number);
+console.log(`Running on PORT: ${PORT}`);
+console.log(`process.env.node_env: ${process.env.node_env}`)
 
 module.exports = app;

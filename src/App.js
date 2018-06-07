@@ -37,7 +37,7 @@ class App extends Component {
             <div className='container'>
                 <div className='header'>
                     <div className='container-content'>
-                        Convert PDFs to Microsoft Word
+                        Edit One Page PDFs
                     </div>
                 </div>
                 <div className='container-content main-content'>

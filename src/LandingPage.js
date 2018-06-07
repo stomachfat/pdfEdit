@@ -85,7 +85,7 @@ const LandingPage = ({ done }) => {
             <div
               className="dropFileText"
             >
-                Test Drop a file here!
+                Drop a one-page PDF here!
             </div>
 
             <div>
