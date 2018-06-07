@@ -35,4 +35,4 @@ ADD . /opt/app
 
 EXPOSE 8080
 
-CMD [ "yarn", "devexpress" ]
+CMD [ "yarn", "prodexpress" ]

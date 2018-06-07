@@ -25,7 +25,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "express": "yarn run webpack && node ./bin/www",
-    "devexpress": "yarn run webpack && nodemon ./bin/www",
+    "devexpress": "NODE_ENV=development yarn run webpack && NODE_ENV=development nodemon ./bin/www",
+    "prodexpress": "NODE_ENV=production yarn run webpack && NODE_ENV=production nodemon ./bin/www",
     "webpack": "webpack"
   },
   "devDependencies": {

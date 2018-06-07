@@ -83,6 +83,6 @@ var PORT = 3000;
 var port_number = app.listen(process.env.PORT || PORT);
 app.listen(port_number);
 console.log(`Running on PORT: ${PORT}`);
-console.log(`process.env.node_env: ${process.env.node_env}`)
+console.log(`process.env.NODE_ENV: ${process.env.NODE_ENV}`)
 
 module.exports = app;

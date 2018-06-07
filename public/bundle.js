@@ -20176,7 +20176,7 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'container-content' },
-                        'Convert PDFs to Microsoft Word'
+                        'Edit One Page PDFs'
                     )
                 ),
                 _react2.default.createElement(
@@ -20347,7 +20347,7 @@ var LandingPage = function LandingPage(_ref) {
         {
           className: 'dropFileText'
         },
-        'Test Drop a file here!'
+        'Drop a one-page PDF here!'
       ),
       _react2.default.createElement(
         'div',
