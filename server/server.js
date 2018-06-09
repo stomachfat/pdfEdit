@@ -2,24 +2,19 @@
 var express = require('express');
 var app = express();
 
-var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 
 
-const fileUpload = require('express-fileupload');
-app.use(fileUpload());
-const fileUploaderRoute = require('./routes/fileUpload');
-app.use(fileUploaderRoute);
-const convertPngToPdfRoute = require('./routes/convertPngToPdf');
-app.use(convertPngToPdfRoute);
+
 // default options
 
 // app.post('/upload', function(req, res) {
@@ -40,7 +35,19 @@ app.use(convertPngToPdfRoute);
 //   });
 // });
 
-var terminalCommands = require('./routes/terminalCommands');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// Define Routes
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+const fileUploaderRoute = require('./routes/fileUpload');
+app.use(fileUploaderRoute);
+const convertPngToPdfRoute = require('./routes/convertPngToPdf');
+app.use(convertPngToPdfRoute);
+
+var payment = require('./routes/payment');
+app.use(payment);
 
 // view engine setup
 app.set('views', path.join(__dirname, '../public/'));
@@ -48,8 +55,7 @@ app.set('view engine', 'ejs');
 
 app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/images', express.static(path.join(__dirname, '../convertedToPng')));
@@ -75,6 +81,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 // Constants
 var PORT = 3000;

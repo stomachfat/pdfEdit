@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
+import Paywall from './Paywall';
 
 import './LandingPage.css';
 
@@ -74,28 +75,34 @@ const onClick = (ev) => {
   document.getElementById('file-input').click();
 };
 
+
+
 const LandingPage = ({ done }) => {
   return (
-    <Dropzone
-      onDrop={onDrop(done)}
-      onClick={() => {}}
-      disableClick
-    >
-        <div>
-            <div
-              className="dropFileText"
-            >
-                Drop a one-page PDF here!
-            </div>
+    <div>
+      <Dropzone
+        onDrop={onDrop(done)}
+        onClick={() => {}}
+        disableClick
+      >
+          <div>
+              <div
+                className="dropFileText"
+              >
+                  Drop a one-page PDF here!
+              </div>
 
-            <div>
-                <input type="button" id="load-file-btn" value="Upload a PDF" onClick={onClick} />
-                <input id="file-input" type="file" onChange={done}></input>
-            </div>
-        </div>
+              <div>
+                  <input type="button" id="load-file-btn" value="Upload a PDF" onClick={onClick} />
+                  <input id="file-input" type="file" onChange={done}></input>
+              </div>
+          </div>
+      </Dropzone>
 
-
-    </Dropzone>
+      {
+        <Paywall />
+      }
+    </div>
   );
 };
 
