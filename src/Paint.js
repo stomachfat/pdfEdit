@@ -23,7 +23,8 @@ class Paint extends Component {
       }.bind(this),
       closeHandler: function () {
         debugger;
-      }
+      },
+      hiddenTools: ['open', 'close'],
     });
   }
 

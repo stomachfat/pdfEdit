@@ -38186,9 +38186,9 @@ var LandingPage = function LandingPage(_ref) {
     _react2.default.createElement(
       _reactDropzone2.default,
       {
-        onDrop: onDrop(done),
-        onClick: function onClick() {},
-        disableClick: true
+        onDrop: onDrop(done)
+        // onClick={() => {}}
+        // disableClick
       },
       _react2.default.createElement(
         'div',
@@ -38203,8 +38203,8 @@ var LandingPage = function LandingPage(_ref) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('input', { type: 'button', id: 'load-file-btn', value: 'Upload a PDF', onClick: onClick }),
-          _react2.default.createElement('input', { id: 'file-input', type: 'file', onChange: done })
+          _react2.default.createElement('input', { type: 'button', id: 'load-file-btn', value: 'Upload a PDF' }),
+          _react2.default.createElement('input', { id: 'file-input', type: 'file' })
         )
       )
     )
@@ -39862,7 +39862,8 @@ var Paint = function (_Component) {
       }.bind(_this),
       closeHandler: function closeHandler() {
         debugger;
-      }
+      },
+      hiddenTools: ['open', 'close']
     });
     return _this;
   }

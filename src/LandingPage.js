@@ -80,8 +80,8 @@ const LandingPage = ({ done }) => {
     <div>
       <Dropzone
         onDrop={onDrop(done)}
-        onClick={() => {}}
-        disableClick
+        // onClick={() => {}}
+        // disableClick
       >
           <div>
               <div
@@ -91,8 +91,8 @@ const LandingPage = ({ done }) => {
               </div>
 
               <div>
-                  <input type="button" id="load-file-btn" value="Upload a PDF" onClick={onClick} />
-                  <input id="file-input" type="file" onChange={done}></input>
+                <input type="button" id="load-file-btn" value="Upload a PDF"/>
+                <input id="file-input" type="file"></input>
               </div>
           </div>
       </Dropzone>
