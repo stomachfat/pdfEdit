@@ -1,4 +1,4 @@
-module.exports =  {
-  stripePublishableKey: 'pk_live_zeQQ32YSVlP1qdK1oGbcoXe8',
-  stripeSecretKey: 'sk_live_VRbmwURAsPo3tXcY7n8c9iWb',
+module.exports = {
+  stripePublishableKey: 'pk_test_g6do5S237ekq10r65BnxO6S0',
+  stripeSecretKey: 'sk_test_BQokikJOvBiI2HlWgH4olfQ2',
 };

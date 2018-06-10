@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import LandingPage from './LandingPage';
 import LoadingPage from './LoadingPage';
-import Paywall from './Paywall';
 import PaintPage from './PaintPage';
 
 

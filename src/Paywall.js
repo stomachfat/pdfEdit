@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
+import {
+  noop,
+} from 'lodash';
+
 import { stripePublishableKey } from '../config/current.env.js';
 
 class Paywall extends React.Component {
-  onToken(token) {
-    console.log('stripe token:', token);
+  constructor() {
+    super();
 
+    this.onToken = this.onToken.bind(this);
+  }
+
+  onToken(token) {
     fetch('/paymentToken', {
       method: 'POST',
       headers: {
@@ -14,10 +22,11 @@ class Paywall extends React.Component {
       },
       body: JSON.stringify(token),
     }).then(response => {
-      response.json().then(data => {
-        // debugger;
-        // alert(`We are in business, ${data.email}`);
-      });
+      return response.json();
+    }).then(data => {
+      this.props.onTokenSuccess();
+    }).catch(err => {
+      alert('An error has occured with payment. You were not charged. Please try again.')
     });
   }
 
@@ -31,60 +40,23 @@ class Paywall extends React.Component {
         stripeKey={stripePublishableKey}
         amount={100}
         currency="USD"
-      />
+        ref={el => this.StripCheckout = el}
+      >
+        {this.props.hideButton ?
+          <button
+            id="stripeCheckoutButton"
+            onClick={noop}
+          >
+          </button> :
+          null
+        }
+      </StripeCheckout>
     )
   }
 }
 
+Paywall.defaultProps = {
+  onTokenSuccess: noop,
+};
+
 export default Paywall;
-
-// class Paywall extends Component {
-//   constructor() {
-//     super();
-//   }
-
-//   componentDidMount() {
-
-
-//     this.stripHandler = StripeCheckout.configure({
-//       key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
-//       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-//       locale: 'auto',
-//       token: function (token) {
-//           // Use the token to create the charge with a server-side script.
-//           // You can access the token ID with `token.id`
-//           $("#stripeToken").val(token.id);
-//           $("#stripeEmail").val(token.email);
-//           $("#myForm").submit();
-//       }
-//     });
-//   }
-
-//   onClickPayment(e){
-//     debugger;
-//     stripHandler.open({
-//       name: 'Stripe.com',
-//       description: '2 widgets',
-//       amount: 2000
-//     });
-//     e.preventDefault();
-//   }
-
-//   render() {
-//     return (
-//       <form id="myForm" action="/echo/html/" method="POST">
-//           <script src="https://checkout.stripe.com/checkout.js"></script>
-//           <input type="hidden" id="stripeToken" name="stripeToken" />
-//           <input type="hidden" id="stripeEmail" name="stripeEmail" />
-//           <button
-//             id="customButton"
-//             onClick={this.onClickPayment}
-//           >
-//             Purchase
-//           </button>
-//       </form>
-//     );
-//   }
-// }
-
-// export default Paywall;

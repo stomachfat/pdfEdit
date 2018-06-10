@@ -1,8 +1,6 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
-import Paywall from './Paywall';
-
 import './LandingPage.css';
 
 const saveToServer = file => {
@@ -98,10 +96,6 @@ const LandingPage = ({ done }) => {
               </div>
           </div>
       </Dropzone>
-
-      {
-        <Paywall />
-      }
     </div>
   );
 };
