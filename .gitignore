@@ -8,6 +8,14 @@
 
 # production
 /build
+/convertedToPdf
+/convertedToPng
+
+# production env config which contains stripe keys
+# I'm doing this for now since I want to avoid paying
+# for a private repo (saves me $7/month) XD
+/config/production.env.js
+
 
 # misc
 .DS_Store
@@ -19,3 +27,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
