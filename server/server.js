@@ -47,9 +47,9 @@ app.use('/', index);
 
 // THIS IS USED TO GET SSL FROM 'Let's Encrypt'
 // from Internet Security Research Group (ISRG).
-app.get('/.well-known/acme-challenge/nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4', function(req, res) {
-  res.send('nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4.Fyb7tYMRHpgFSc_gxqh_I1budcBS1g52MksJUQVYIWQ')
-})
+// app.get('/.well-known/acme-challenge/nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4', function(req, res) {
+//   res.send('nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4.Fyb7tYMRHpgFSc_gxqh_I1budcBS1g52MksJUQVYIWQ')
+// })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

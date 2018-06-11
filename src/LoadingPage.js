@@ -5,8 +5,8 @@ class LoadingPage extends Component {
         super(props);
 
         this.state = {
-            progress: 0
-        };            
+            progress: 0,
+        };
         this.loadingProgress = this.loadingProgress;
     }
     componentDidMount() {
@@ -26,17 +26,17 @@ class LoadingPage extends Component {
                 this.setState({
                     progress: Math.min(this.state.progress + Math.floor(Math.random() * 10), 100)
                 });
-                this.loadingProgress(); 
+                this.loadingProgress();
             },
             Math.floor(Math.random() * 300)
         );
-    }        
+    }
     render() {
         return (
             <div>
                 <img src="loading.gif"/>
                 Loading... {this.state.progress}%
-            </div> 
+            </div>
         );
     }
 }

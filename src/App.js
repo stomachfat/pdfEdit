@@ -14,7 +14,7 @@ class App extends Component {
 
         this.moveToNextPage = this.moveToNextPage.bind(this);
     }
-    moveToNextPage () {
+    async moveToNextPage () {
         const pageTransitions = [
             [LandingPage, LoadingPage],
             [LoadingPage, PaintPage]
@@ -25,12 +25,22 @@ class App extends Component {
             return currentPage.name === page[0].name
         })[1];
 
+        if (this.state.currentPage === LoadingPage) {
+            const a = this[LandingPage.name];
+            // this ensures the PDF has converted
+            // before loading in the PaintPage
+            await this[LandingPage.name].get_saveToServerNetworkCall();
+        }
+
         this.setState({
             currentPage: nextPage
         });
     }
     render() {
-        var renderedPage = React.createElement(this.state.currentPage, { done: this.moveToNextPage});
+        var renderedPage = React.createElement(this.state.currentPage, {
+            done: this.moveToNextPage,
+            ref: el => this[this.state.currentPage.name] = el,
+        });
 
         return (
             <div className='container'>

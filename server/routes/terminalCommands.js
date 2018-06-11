@@ -18,6 +18,7 @@ function sh(cmd) {
   });
 }
 
+
 var convertPDFToPngTerminalCommand = 'convert -density 300 uploads/test.pdf -quality 100 -flatten convertedToPng/test.png';
 var convertPngToPdfTerminalCommand = 'convert -density 300 uploads/test.png -quality 100 convertedToPdf/test.pdf'
 
@@ -26,13 +27,12 @@ function main(terminalCommand) {
 
   const mainPromise = sh(terminalCommand).then(({ stdout }) => {
     for (let line of stdout.split('\n')) {
-      debugger;
       console.log(`ls: ${line}`);
 
     }
     console.log('DONE CONVERTING');
 
-    return;
+    return true;
   });
 
   return mainPromise;

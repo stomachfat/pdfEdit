@@ -37998,13 +37998,20 @@ var App = function (_Component) {
 
     _createClass(App, [{
         key: 'moveToNextPage',
-        value: function moveToNextPage() {
+        value: async function moveToNextPage() {
             var pageTransitions = [[_LandingPage2.default, _LoadingPage2.default], [_LoadingPage2.default, _PaintPage2.default]];
             var currentPage = this.state.currentPage;
 
             var nextPage = pageTransitions.find(function (page) {
                 return currentPage.name === page[0].name;
             })[1];
+
+            if (this.state.currentPage === _LoadingPage2.default) {
+                var a = this[_LandingPage2.default.name];
+                // this ensures the PDF has converted
+                // before loading in the PaintPage
+                await this[_LandingPage2.default.name].get_saveToServerNetworkCall();
+            }
 
             this.setState({
                 currentPage: nextPage
@@ -38013,7 +38020,14 @@ var App = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var renderedPage = _react2.default.createElement(this.state.currentPage, { done: this.moveToNextPage });
+            var _this2 = this;
+
+            var renderedPage = _react2.default.createElement(this.state.currentPage, {
+                done: this.moveToNextPage,
+                ref: function ref(el) {
+                    return _this2[_this2.state.currentPage.name] = el;
+                }
+            });
 
             return _react2.default.createElement(
                 'div',
@@ -38097,6 +38111,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -38109,107 +38125,118 @@ __webpack_require__(42);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var saveToServer = function saveToServer(file) {
-  // debugger;
-  // let data = new FormData();
-  // data.append('file', file);
-  // // data.append('action', 'upload');
-  // // data.append('encType', 'multipart/form-data');
-  // // data.append('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  // let config = {
-  //   headers: {
-  //     'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-  //     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-  //   },
-  //   // onUploadProgress: function(progressEvent) {
-  //   //   var percentCompleted = Math.round( (progressEvent.loaded * 100) / progressEvent.total );
-  //   //   console.log('onUploadProgress: ', percentCompleted);
-  //   // }
-  // };
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  // axios.post('/upload', data, config)
-  //   .then(res => {
-  //     debugger;
-  //   });
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var LandingPage = function (_Component) {
+  _inherits(LandingPage, _Component);
 
-  // Connection: keep-alive
-  // Content-Length: 278091
-  // Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryvN36AsH3J1BY3NWC
-  // Cookie: SL_C_23361dd035530_VID=pVFOwy0T4Tru; SL_C_23361dd035530_KEY=101120913b4b1bf943c472cc08780a7d65ae598c; _ga=GA1.1.1468836347.1526220057; SL_C_23361dd035530_SID=TcUixpkVGKrY; csrftoken=u0QoAuGdtKDFbwWfB7TjrtgAUKb20y1JFw2y1nfZX06XYpmKMOTjDa5YHa5B3hBa; ajs_anonymous_id=%22e1cc6772-bf85-469b-b062-9f58feb46d49%22; ajs_user_id=3; amplitude_id_807ad6dda340028d2451436d1b286c77=eyJkZXZpY2VJZCI6ImQ5MzlhNTc3LWFkOTAtNDczNS1hM2E2LTY1OTUxMjIzMzVlY1IiLCJ1c2VySWQiOiIzIiwib3B0T3V0IjpmYWxzZSwic2Vzc2lvbklkIjoxNTI2MzMwODc1MjEzLCJsYXN0RXZlbnRUaW1lIjoxNTI2MzMyODI2MjgwLCJldmVudElkIjo2OSwiaWRlbnRpZnlJZCI6ODgsInNlcXVlbmNlTnVtYmVyIjoxNTd9
-  // Host: localhost:8000
-  // Origin: http://localhost:8000
-  // Referer: http://localhost:8000/
+  function LandingPage(props) {
+    _classCallCheck(this, LandingPage);
 
-  // User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+    return _possibleConstructorReturn(this, (LandingPage.__proto__ || Object.getPrototypeOf(LandingPage)).call(this, props));
+  }
 
-  var data = new FormData();
-  data.append('file', file);
+  _createClass(LandingPage, [{
+    key: 'saveToServer',
+    value: function saveToServer(file) {
+      var data = new FormData();
+      data.append('file', file);
 
-  fetch('/upload', { // Your POST endpoint
-    method: 'POST',
-    // headers: {
-    //   "Content-Type": `multipart/form-data; boundary=${data._boundary}`,
-    //   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    //   'Accept-Encoding': 'gzip, deflate, br',
-    //   'Accept-Language': 'en-US,en;q=0.9',
-    //   'Cache-Control': 'max-age=0',
-    //   'Upgrade-Insecure-Requests': '1',
-    // },
-    body: data
-  }).then(function (response) {});
-};
+      var saveToServerPromise = fetch('/upload', { // Your POST endpoint
+        method: 'POST',
+        body: data
+      }).then(function (response) {});
 
-var onDrop = function onDrop(done) {
-  return function (acceptedFiles, rejectedFiles, event) {
-    var file = acceptedFiles[0];
+      return saveToServerPromise;
+    }
+  }, {
+    key: 'onDrop',
+    value: function onDrop(done) {
+      return function (acceptedFiles, rejectedFiles, event) {
+        var file = acceptedFiles[0];
 
-    saveToServer(file);
-    done();
-  };
-};
-
-var onClick = function onClick(ev) {
-  ev.preventDefault();
-  ev.stopPropagation();
-
-  document.getElementById('file-input').click();
-};
-
-var LandingPage = function LandingPage(_ref) {
-  var done = _ref.done;
-
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      _reactDropzone2.default,
-      {
-        onDrop: onDrop(done)
-        // onClick={() => {}}
-        // disableClick
-      },
-      _react2.default.createElement(
+        this._saveToServerNetworkCall = this.saveToServer(file, done);
+        done();
+      }.bind(this);
+    }
+  }, {
+    key: 'get_saveToServerNetworkCall',
+    value: function get_saveToServerNetworkCall() {
+      return this._saveToServerNetworkCall;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          'div',
+          _reactDropzone2.default,
           {
-            className: 'dropFileText'
+            onDrop: this.onDrop(this.props.done)
+            // onClick={() => {}}
+            // disableClick
           },
-          'Drop a one-page PDF here!'
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement('input', { type: 'button', id: 'load-file-btn', value: 'Upload a PDF' }),
-          _react2.default.createElement('input', { id: 'file-input', type: 'file' })
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              {
+                className: 'dropFileText'
+              },
+              'Drop a one-page PDF here!'
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement('input', { type: 'button', id: 'load-file-btn', value: 'Upload a PDF' }),
+              _react2.default.createElement('input', { id: 'file-input', type: 'file' })
+            )
+          )
         )
-      )
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return LandingPage;
+}(_react.Component);
+
+// const onClick = (ev) => {
+//   ev.preventDefault();
+//   ev.stopPropagation();
+
+//   document.getElementById('file-input').click();
+// };
+
+// const LandingPage = ({ done }) => {
+// return (
+//   <div>
+//     <Dropzone
+//       onDrop={onDrop(done)}
+//       // onClick={() => {}}
+//       // disableClick
+//     >
+//         <div>
+//             <div
+//               className="dropFileText"
+//             >
+//                 Drop a one-page PDF here!
+//             </div>
+
+//             <div>
+//               <input type="button" id="load-file-btn" value="Upload a PDF"/>
+//               <input id="file-input" type="file"></input>
+//             </div>
+//         </div>
+//     </Dropzone>
+//   </div>
+// );
+// };
 
 exports.default = LandingPage;
 
