@@ -1,5 +1,7 @@
 // var serverless = require('serverless-http');
 var express = require('express');
+var forceSsl = require('force-ssl-heroku');
+
 var app = express();
 
 var path = require('path');
@@ -13,28 +15,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 
-
-
-// default options
-
-// app.post('/upload', function(req, res) {
-//   if (!req.files)
-//     return res.status(400).send('No files were uploaded.');
-
-//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-//   let sampleFile = req.files.sampleFile;
-//   console.log('sampleFile', sampleFile);
-//   // Use the mv() method to place the file somewhere on your server
-//   sampleFile.mv('uploads/test.png', function(err) {
-//     if (err) {
-//       console.log('wtf - err: ', err);
-//       return res.status(500).send(err);
-//     }
-
-//     res.send('File uploaded!');
-//   });
-// });
-
+app.use(forceSsl);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -62,6 +43,13 @@ app.use('/images', express.static(path.join(__dirname, '../convertedToPng')));
 app.use('/pdfs', express.static(path.join(__dirname, '../convertedToPdf')));
 
 app.use('/', index);
+
+
+// THIS IS USED TO GET SSL FROM 'Let's Encrypt'
+// from Internet Security Research Group (ISRG).
+app.get('/.well-known/acme-challenge/nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4', function(req, res) {
+  res.send('nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4.Fyb7tYMRHpgFSc_gxqh_I1budcBS1g52MksJUQVYIWQ')
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
