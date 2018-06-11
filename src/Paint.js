@@ -48,6 +48,37 @@ class Paint extends Component {
     return this.formData;
   }
 
+  calibrateZoom() {
+    // There's a text-bug that occurs
+    // where the text shows up scaled
+    // much bigger than it's supposed to.
+    // Seems like zooming in and then out
+    // fixes it.
+    // Therefore programmatically do this
+    const zoomEvent = {
+      clientX:702, 
+      clientY:183,
+      // this does not reflect a real target
+      // targets are actual DOM NODES
+      ctrlKey: true,
+      wheelDelta: 10,
+      target: {
+        tagName: 'DIV',
+      },
+      preventDefault: noop,
+    };
+
+
+    const that = this;
+    console.log("this.ptro.shown: ", this.ptro.shown);
+    setTimeout(() => {
+      console.log("this.ptro.shown: ", this.ptro.shown);
+      that.ptro.documentHandlers.mousewheel(zoomEvent);
+      that.ptro.adjustSizeFull();
+    }, 1000);
+
+  }
+
   fetchAndOpenImage() {
     fetch('/images/test.png').then(rsp => {
       const a = rsp;
@@ -58,6 +89,8 @@ class Paint extends Component {
 
       this.ptro.openFile(blob);
       this.ptro.show();
+
+      this.calibrateZoom();
     })
   }
 
