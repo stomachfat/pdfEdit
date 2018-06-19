@@ -1,6 +1,4 @@
-// var serverless = require('serverless-http');
 var express = require('express');
-var forceSsl = require('force-ssl-heroku');
 
 var app = express();
 
@@ -9,13 +7,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var onHeaders = require('on-headers')
 
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
-
-app.use(forceSsl);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -38,18 +32,40 @@ app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
 app.use(logger('dev'));
 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
+
+
+
+function unsetCacheHeaders() {
+  this.removeHeader('Etag')
+  this.removeHeader('Last-Modified')
+  // this.removeHeader('Cache-Control')
+}
+
+function nonCachedpublicAssets(path) {
+  if (typeof path !== 'string') {
+    return false;
+  }
+
+  return path.includes('bundle.js') || path.includes('index.html');
+}
+
+// Solution on https://github.com/expressjs/express/issues/2326
+// to modify static content so that it doesn't have a 'Last-Modified'
+// in the header
+app.use(express.static(path.join(__dirname, '../public'), {
+  setHeaders: function (res, path) {
+    // no etag or last-modified for nonCachedpublicAssets
+    if (nonCachedpublicAssets(path)) {
+      onHeaders(res, unsetCacheHeaders)
+    }
+  },
+}));
 app.use('/images', express.static(path.join(__dirname, '../convertedToPng')));
 app.use('/pdfs', express.static(path.join(__dirname, '../convertedToPdf')));
 
-app.use('/', index);
 
 
-// THIS IS USED TO GET SSL FROM 'Let's Encrypt'
-// from Internet Security Research Group (ISRG).
-// app.get('/.well-known/acme-challenge/nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4', function(req, res) {
-//   res.send('nLRCpPT1Yz6zYlEw3Vfjc-JUVUvooENd-EhsMhPww_4.Fyb7tYMRHpgFSc_gxqh_I1budcBS1g52MksJUQVYIWQ')
-// })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

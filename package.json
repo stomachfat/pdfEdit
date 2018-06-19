@@ -13,6 +13,7 @@
     "force-ssl-heroku": "^1.0.2",
     "lodash": "^4.17.10",
     "morgan": "^1.9.0",
+    "on-headers": "^1.0.1",
     "painterro": "^0.2.65",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
