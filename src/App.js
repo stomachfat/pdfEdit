@@ -49,8 +49,15 @@ class App extends Component {
                         Edit One Page PDFs
                     </div>
                 </div>
+
                 <div className='container-content main-content'>
                     {renderedPage}
+                </div>
+
+                <div className='footer'>
+                    <div className='subtitle'>
+                        The only PDF online editor as simple as editing an image. Just $1.
+                    </div>
                 </div>
             </div>
         );

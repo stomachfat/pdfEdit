@@ -36,9 +36,8 @@ app.use(cookieParser());
 
 
 function unsetCacheHeaders() {
-  this.removeHeader('Etag')
-  this.removeHeader('Last-Modified')
-  // this.removeHeader('Cache-Control')
+  this.removeHeader('Etag');
+  this.removeHeader('Last-Modified');
 }
 
 function nonCachedpublicAssets(path) {
@@ -46,7 +45,11 @@ function nonCachedpublicAssets(path) {
     return false;
   }
 
-  return path.includes('bundle.js') || path.includes('index.html');
+  return path.includes('bundle.js')
+    || path.includes('index.html')
+    || path.includes('favicon.ico')
+    || path.includes('manifest.json');
+  ;
 }
 
 // Solution on https://github.com/expressjs/express/issues/2326

@@ -46,8 +46,6 @@ class LandingPage extends Component {
       <div>
         <Dropzone
           onDrop={this.onDrop(this.props.done)}
-          // onClick={() => {}}
-          // disableClick
         >
             <div>
                 <div
@@ -66,37 +64,5 @@ class LandingPage extends Component {
     );
   }
 }
-
-// const onClick = (ev) => {
-//   ev.preventDefault();
-//   ev.stopPropagation();
-
-//   document.getElementById('file-input').click();
-// };
-
-// const LandingPage = ({ done }) => {
-  // return (
-  //   <div>
-  //     <Dropzone
-  //       onDrop={onDrop(done)}
-  //       // onClick={() => {}}
-  //       // disableClick
-  //     >
-  //         <div>
-  //             <div
-  //               className="dropFileText"
-  //             >
-  //                 Drop a one-page PDF here!
-  //             </div>
-
-  //             <div>
-  //               <input type="button" id="load-file-btn" value="Upload a PDF"/>
-  //               <input id="file-input" type="file"></input>
-  //             </div>
-  //         </div>
-  //     </Dropzone>
-  //   </div>
-  // );
-// };
 
 export default LandingPage;

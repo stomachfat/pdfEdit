@@ -38045,6 +38045,15 @@ var App = function (_Component) {
                     'div',
                     { className: 'container-content main-content' },
                     renderedPage
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'footer' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'subtitle' },
+                        'The only PDF online editor as simple as editing an image. Just $1.'
+                    )
                 )
             );
         }
@@ -38095,7 +38104,7 @@ exports = module.exports = __webpack_require__(9)(undefined);
 
 
 // module
-exports.push([module.i, ".header {\n    background-color: black;\n    color: white;\n    font-size: 3em;\n}\n\n.container-content {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding: 1em;\n}\n\n.main-content *{\n    font-size: 1em;\n    text-align: center;\n}\n\n.main-content {\n    display: flex;\n    justify-content: center;\n}\n\n.cta {\n    font-size: 2em;\n}\n\n#file-input {\n    display: none;\n}\n\n", ""]);
+exports.push([module.i, ".header {\n    background-color: black;\n    color: white;\n    font-size: 3em;\n}\n\n.container-content {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding: 1em;\n}\n\n.subtitle {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding: 1em;\n    font-size: .6em;\n}\n\n.main-content *{\n    font-size: 1em;\n    text-align: center;\n}\n\n.main-content {\n    display: flex;\n    justify-content: center;\n}\n\n.cta {\n    font-size: 2em;\n}\n\n#file-input {\n    display: none;\n}\n\n", ""]);
 
 // exports
 
@@ -38178,8 +38187,6 @@ var LandingPage = function (_Component) {
           _reactDropzone2.default,
           {
             onDrop: this.onDrop(this.props.done)
-            // onClick={() => {}}
-            // disableClick
           },
           _react2.default.createElement(
             'div',
