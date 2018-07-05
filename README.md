@@ -15,4 +15,4 @@ Run the express server and frontend
 	
 	yarn devexpress
 
-Go to [localhost:3000](//www.localhost:3000) to see the app!
+Go to [localhost:3000](http://www.localhost:3000) to see the app!
