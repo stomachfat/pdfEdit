@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(18);
+} else {
+  module.exports = __webpack_require__(19);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(18);
-} else {
-  module.exports = __webpack_require__(19);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -326,7 +326,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 3 */
@@ -489,7 +489,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -1328,7 +1328,7 @@ if (process.env.NODE_ENV !== 'production') {
   module.exports = __webpack_require__(38)();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 16 */
@@ -18450,7 +18450,7 @@ if (process.env.NODE_ENV !== 'production') {
 "use strict";
 
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18464,7 +18464,7 @@ var _App = __webpack_require__(32);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _registerServiceWorker = __webpack_require__(54);
+var _registerServiceWorker = __webpack_require__(56);
 
 var _registerServiceWorker2 = _interopRequireDefault(_registerServiceWorker);
 
@@ -19982,7 +19982,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 20 */
@@ -20028,7 +20028,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(24);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 21 */
@@ -20047,7 +20047,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),ca=__webpack_require__(1),m=__webpack_require__(11),p=__webpack_require__(4),v=__webpack_require__(3),da=__webpack_require__(12),ea=__webpack_require__(13),fa=__webpack_require__(14),ha=__webpack_require__(5);
+var aa=__webpack_require__(2),ca=__webpack_require__(0),m=__webpack_require__(11),p=__webpack_require__(4),v=__webpack_require__(3),da=__webpack_require__(12),ea=__webpack_require__(13),fa=__webpack_require__(14),ha=__webpack_require__(5);
 function A(a){for(var b=arguments.length-1,c="https://reactjs.org/docs/error-decoder.html?invariant="+a,d=0;d<b;d++)c+="&args[]="+encodeURIComponent(arguments[d+1]);aa(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}ca?void 0:A("227");
 function ia(a,b,c,d,e,f,g,h,k){this._hasCaughtError=!1;this._caughtError=null;var n=Array.prototype.slice.call(arguments,3);try{b.apply(c,n)}catch(r){this._caughtError=r,this._hasCaughtError=!0}}
 var B={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,g,h,k){ia.apply(B,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,g,h,k){B.invokeGuardedCallback.apply(this,arguments);if(B.hasCaughtError()){var n=B.clearCaughtError();B._hasRethrowError||(B._hasRethrowError=!0,B._rethrowError=n)}},rethrowCaughtError:function(){return ka.apply(B,arguments)},hasCaughtError:function(){return B._hasCaughtError},clearCaughtError:function(){if(B._hasCaughtError){var a=
@@ -20354,7 +20354,7 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var invariant = __webpack_require__(2);
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(11);
 var _assign = __webpack_require__(4);
@@ -37643,7 +37643,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 25 */
@@ -37949,12 +37949,12 @@ module.exports = function (css) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37972,6 +37972,14 @@ var _PaintPage = __webpack_require__(45);
 
 var _PaintPage2 = _interopRequireDefault(_PaintPage);
 
+var _PrivacyPolicy = __webpack_require__(54);
+
+var _PrivacyPolicy2 = _interopRequireDefault(_PrivacyPolicy);
+
+var _ContactUs = __webpack_require__(55);
+
+var _ContactUs2 = _interopRequireDefault(_ContactUs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37981,85 +37989,147 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var App = function (_Component) {
-    _inherits(App, _Component);
+  _inherits(App, _Component);
 
-    function App(props) {
-        _classCallCheck(this, App);
+  function App(props) {
+    _classCallCheck(this, App);
 
-        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-        _this.state = {
-            currentPage: _LandingPage2.default
-        };
+    _this.state = {
+      currentPage: _LandingPage2.default
+    };
 
-        _this.moveToNextPage = _this.moveToNextPage.bind(_this);
-        return _this;
+    _this.moveToNextPage = _this.moveToNextPage.bind(_this);
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: 'moveToNextPage',
+    value: async function moveToNextPage() {
+      var pageTransitions = [[_LandingPage2.default, _LoadingPage2.default], [_LoadingPage2.default, _PaintPage2.default]];
+      var currentPage = this.state.currentPage;
+
+      var nextPage = pageTransitions.find(function (page) {
+        return currentPage.name === page[0].name;
+      })[1];
+
+      if (this.state.currentPage === _LoadingPage2.default) {
+        var a = this[_LandingPage2.default.name];
+        // this ensures the PDF has converted
+        // before loading in the PaintPage
+        await this[_LandingPage2.default.name].get_saveToServerNetworkCall();
+      }
+
+      this.setState({
+        currentPage: nextPage
+      });
     }
-
-    _createClass(App, [{
-        key: 'moveToNextPage',
-        value: async function moveToNextPage() {
-            var pageTransitions = [[_LandingPage2.default, _LoadingPage2.default], [_LoadingPage2.default, _PaintPage2.default]];
-            var currentPage = this.state.currentPage;
-
-            var nextPage = pageTransitions.find(function (page) {
-                return currentPage.name === page[0].name;
-            })[1];
-
-            if (this.state.currentPage === _LoadingPage2.default) {
-                var a = this[_LandingPage2.default.name];
-                // this ensures the PDF has converted
-                // before loading in the PaintPage
-                await this[_LandingPage2.default.name].get_saveToServerNetworkCall();
-            }
-
+  }, {
+    key: 'moveToFooterPages',
+    value: function moveToFooterPages(page) {
+      switch (page) {
+        case 'landingPage':
+          {
             this.setState({
-                currentPage: nextPage
+              currentPage: _LandingPage2.default
             });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
+            break;
+          }
+        case 'privacyPolicy':
+          {
+            this.setState({
+              currentPage: _PrivacyPolicy2.default
+            });
+            break;
+          }
+        case 'contactUs':
+          {
+            this.setState({
+              currentPage: _ContactUs2.default
+            });
+            break;
+          }
+        default:
+          break;
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
 
-            var renderedPage = _react2.default.createElement(this.state.currentPage, {
-                done: this.moveToNextPage,
-                ref: function ref(el) {
-                    return _this2[_this2.state.currentPage.name] = el;
+      var renderedPage = _react2.default.createElement(this.state.currentPage, {
+        done: this.moveToNextPage,
+        ref: function ref(el) {
+          return _this2[_this2.state.currentPage.name] = el;
+        }
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'header' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container-content' },
+            'Edit One Page PDFs'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'subtitle' },
+            'As simple as editing an image. Just $1.'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'container-content main-content' },
+          renderedPage
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'footer' },
+          _react2.default.createElement(
+            'div',
+            { className: 'page-options' },
+            _react2.default.createElement(
+              'div',
+              { className: 'page-option',
+                onClick: function onClick() {
+                  return _this2.moveToFooterPages('landingPage');
                 }
-            });
+              },
+              'Pdf Online Editor'
+            ),
+            _react2.default.createElement(
+              'div',
+              {
+                className: 'page-option',
+                onClick: function onClick() {
+                  return _this2.moveToFooterPages('privacyPolicy');
+                }
+              },
+              'Privacy Policy'
+            ),
+            _react2.default.createElement(
+              'div',
+              {
+                className: 'page-option',
+                onClick: function onClick() {
+                  return _this2.moveToFooterPages('contactUs');
+                }
+              },
+              'Contact Us'
+            )
+          )
+        )
+      );
+    }
+  }]);
 
-            return _react2.default.createElement(
-                'div',
-                { className: 'container' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'header' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'container-content' },
-                        'Edit One Page PDFs'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'container-content main-content' },
-                    renderedPage
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'footer' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'subtitle' },
-                        'The only PDF online editor as simple as editing an image. Just $1.'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return App;
+  return App;
 }(_react.Component);
 
 exports.default = App;
@@ -38104,7 +38174,7 @@ exports = module.exports = __webpack_require__(9)(undefined);
 
 
 // module
-exports.push([module.i, ".header {\n    background-color: black;\n    color: white;\n    font-size: 3em;\n}\n\n.container-content {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding: 1em;\n}\n\n.subtitle {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding: 1em;\n    font-size: .6em;\n}\n\n.main-content *{\n    font-size: 1em;\n    text-align: center;\n}\n\n.main-content {\n    display: flex;\n    justify-content: center;\n}\n\n.cta {\n    font-size: 2em;\n}\n\n#file-input {\n    display: none;\n}\n\n", ""]);
+exports.push([module.i, ".header {\n    background-color: black;\n    color: white;\n    font-size: 3em;\n}\n\n.container-content {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding: .5em;\n}\n\n.subtitle {\n    max-width: 700px;\n    margin-left: auto;\n    margin-right: auto;\n    text-align: center;\n    padding-bottom: 1em;\n    font-size: .4em;\n}\n\n.main-content *{\n    font-size: 1em;\n    text-align: center;\n}\n\n.main-content {\n    display: flex;\n    justify-content: center;\n}\n\n.cta {\n    font-size: 2em;\n}\n\n#painterro {\n  z-index: 100;\n}\n\n#file-input {\n    display: none;\n}\n\n#footer {\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 100px;\n  margin: 0 auto;\n  background-color: black;\n  color: white;\n  font-size: .4em;\n  z-index: 0;\n}\n\n.page-options {\n  justify-content: center;\n  display: flex;\n  flex-grow: 1;\n}\n\n.page-option {\n  width: fit-content;\n  margin: auto 0;\n  cursor: pointer;\n  padding: 10px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -38122,7 +38192,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -38213,38 +38283,6 @@ var LandingPage = function (_Component) {
   return LandingPage;
 }(_react.Component);
 
-// const onClick = (ev) => {
-//   ev.preventDefault();
-//   ev.stopPropagation();
-
-//   document.getElementById('file-input').click();
-// };
-
-// const LandingPage = ({ done }) => {
-// return (
-//   <div>
-//     <Dropzone
-//       onDrop={onDrop(done)}
-//       // onClick={() => {}}
-//       // disableClick
-//     >
-//         <div>
-//             <div
-//               className="dropFileText"
-//             >
-//                 Drop a one-page PDF here!
-//             </div>
-
-//             <div>
-//               <input type="button" id="load-file-btn" value="Upload a PDF"/>
-//               <input id="file-input" type="file"></input>
-//             </div>
-//         </div>
-//     </Dropzone>
-//   </div>
-// );
-// };
-
 exports.default = LandingPage;
 
 /***/ }),
@@ -38253,7 +38291,7 @@ exports.default = LandingPage;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -38884,7 +38922,7 @@ Dropzone.defaultProps = {
   maxSize: Infinity,
   minSize: 0
 };
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 37 */
@@ -39434,7 +39472,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 38 */
@@ -39665,7 +39703,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -39749,7 +39787,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -39858,7 +39896,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -40078,7 +40116,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -40183,7 +40221,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -40749,6 +40787,209 @@ var downloadPDF = exports.downloadPDF = function downloadPDF() {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PrivacyPolicy = function (_Component) {
+	_inherits(PrivacyPolicy, _Component);
+
+	function PrivacyPolicy() {
+		_classCallCheck(this, PrivacyPolicy);
+
+		return _possibleConstructorReturn(this, (PrivacyPolicy.__proto__ || Object.getPrototypeOf(PrivacyPolicy)).apply(this, arguments));
+	}
+
+	_createClass(PrivacyPolicy, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{
+					className: 'privacy-policy'
+				},
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'title'
+					},
+					'Privacy Policy'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'PDFEdit wants you to feel totally comfortable using our site, so our privacy policy is very simple: when you use the PDFEdit, website, we will not intentionally collect any personally identifiable information, unless there is a clear opt-in to do so.'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'subtitle'
+					},
+					'Use of Communications'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'We value and encourage open communications and welcome feedback on our service and website. Therefore if you decide to email us personally identifiable information (such as your name, email address, information about you or any other content that you may send to us) via our site, we may retain your communication and will only share its content with third parties if compelled to do so by competent courts. We won\'t spam you or sell this information.'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'subtitle'
+					},
+					'Site Analytics'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'PDFEdit does use a site analytics service that allows us to monitor how people are using our site. While this analytics software does track the IP address of a user, it does not associate that IP address with any other data on the site. We use this software purely to see where users of the site are coming from and to monitor site usage at various times of the day. All of this is so that we may provide enhanced services in the future.'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'subtitle'
+					},
+					'Changes To This Privacy Policy'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'PDFEdit is committed to protecting your privacy and we\'ll keep looking for new ways to do that. reserves the right to revise the policy as it sees fit from time to time. PDFEdit'
+				)
+			);
+		}
+	}]);
+
+	return PrivacyPolicy;
+}(_react.Component);
+
+exports.default = PrivacyPolicy;
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContactUs = function (_Component) {
+	_inherits(ContactUs, _Component);
+
+	function ContactUs() {
+		_classCallCheck(this, ContactUs);
+
+		return _possibleConstructorReturn(this, (ContactUs.__proto__ || Object.getPrototypeOf(ContactUs)).apply(this, arguments));
+	}
+
+	_createClass(ContactUs, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{
+					className: 'contact-us'
+				},
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'title'
+					},
+					'Contact Us'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'Feel free to contact me directly with any suggestions, questions, comments, concerns at my personal contact info below.'
+				),
+				_react2.default.createElement('div', {
+					className: 'subtitle'
+				}),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'Contact: Jimmy Truong'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'Phone: 669 444 0436 (personal cell)'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'Email: thamestruong@gmail.com'
+				),
+				_react2.default.createElement(
+					'div',
+					{
+						className: 'text'
+					},
+					'Address: 1499 California St San Francisco California, USA 94109'
+				)
+			);
+		}
+	}]);
+
+	return ContactUs;
+}(_react.Component);
+
+exports.default = ContactUs;
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -40856,7 +41097,7 @@ function unregister() {
     });
   }
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ })
 /******/ ]);
