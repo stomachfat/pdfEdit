@@ -12,6 +12,7 @@ Make sure you have ***ghostscript*** because *imagemagick* depends on it
 	brew install ghostscript
 
 Run the express server and frontend
+	
 	yarn devexpress
 
-Go to [localhost:3000](localhost:3000) to see the app!
+Go to [localhost:3000](https://localhost:3000) to see the app!
