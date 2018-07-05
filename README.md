@@ -37,6 +37,14 @@ Helpful short video, on Heroku CLI (here)[https://www.youtube.com/watch?v=tTwGdU
 
 Make sure ***production.env.js*** exists in ***pdfEdit/config/*** with the right *Stripe keys*.
 
-Go to the root of pdfEdit
+Go to the root of pdfEdit where the ***Dockerfile*** is
 	
-	heroku container:push web -a
+	heroku container:push web --app pdfedit
+
+This will push the new docker image to the registry.
+
+Then release the image to the container to make it live!
+
+	heroku container:release web --app pdfedit
+
+To to https://www.pdfed.it and see the new changes (in like a hot minute)!
