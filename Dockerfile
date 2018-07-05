@@ -1,3 +1,5 @@
+# Using Yarn with Docker
+# refer: https://hackernoon.com/using-yarn-with-docker-c116ad289d56
 FROM risingstack/alpine:3.4-v6.7.0-4.0.0
 
 MAINTAINER Jimmy Truong <thamestruong+pdfedit@gmail.com>
